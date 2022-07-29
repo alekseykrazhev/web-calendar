@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Web Calendar - event's information</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+</head>
+<body>
+	<h1>Information about the ivent:</h1>
+	<p>Name = {{ event.event }}, date = {{ event.date }}</p>
+</body>
+</html>

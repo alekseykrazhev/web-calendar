@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>Web Calendar - events for today</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+	</head>
+	<body>
+		{% if events %}
+		<div class="event_list">
+			<ol class="list">
+				{% for event in events %}
+				<li>Event = {{ event.event }}, date = {{ event.date }}</li>
+				{% endfor %}
+			</ol>
+		</div>
+		{% else %}
+		<div class="header">
+			<p>There are no events for today!</p>
+		</div>
+		{% endif %}
+	</body>
+</html>

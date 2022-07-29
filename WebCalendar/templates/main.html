@@ -1,0 +1,16 @@
+<html>
+	<head>
+		<title>Web Calendar - main page</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+	</head>
+	<body>
+		<div class="header">
+			<h1>Welcome to your Web Calendar!</h1>
+			<p>What would you like to do?</p>
+		</div>
+		<div class="buttons">
+			<button class="button" onclick="window.location.href = '/event'">All events</button>
+			<button class="button" onclick="window.location.href = '/event/today'">Today's events</button>
+		</div>
+	</body>
+</html>

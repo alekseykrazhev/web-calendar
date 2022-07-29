@@ -1,0 +1,78 @@
+body {
+	background-color: rgb(55, 55, 55);
+}
+
+h1 {
+	color: wheat;
+	text-align: center;
+}
+
+p {
+	color: wheat;
+	text-align: center;
+}
+
+.button {
+	background-color: rgb(138, 124, 34);
+	border: none;
+	color: wheat;
+	padding: 15px 32px;
+	text-align: center;
+	display: inline-block;
+	font-size: 35px;
+	height: 100px;
+	width: 400px;
+}
+
+.buttons {
+	text-align: center;
+}
+
+.common_header {
+	padding: 10px;
+	text-align: center;
+	color: wheat;
+	font-size: 35px;
+}
+
+.header {
+	padding: 80px;
+	text-align: center;
+	color: wheat;
+	font-size: 50px;
+}
+
+.event_list {
+	padding: 20px;
+	text-align: center;
+	color: wheat;
+	font-size: 30px;
+}
+
+.event_list a:link, a:visited, a:hover, a:active {
+	color: wheat;
+	text-decoration: none;
+}
+
+.list {
+	list-style: none;
+	padding: 0;
+}
+
+.list li {
+	padding: 7px 20px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border-left: 10px solid #f05d22;
+	box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
+     -2px -2px 5px 0 rgba(0,0,0,.1),
+    2px 2px 5px 0 rgba(0,0,0,.1),
+    -2px 2px 5px 0 rgba(0,0,0,.1);
+    font-size: 20px;
+    letter-spacing: 2px;
+    transition: 0.3s all linear;
+}
+
+.list li:nth-child(2){border-color: #8bc63e;}
+.list li:nth-child(3){border-color: #fcba30;}
+.list li:nth-child(4){border-color: #1ccfc9;}

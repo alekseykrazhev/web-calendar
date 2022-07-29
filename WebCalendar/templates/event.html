@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<title>Web Calendar - all events</title>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+	</head>
+	<body>
+		<div class="common_header">
+			<h1>All events you have planned:</h1>
+		</div>
+		<div class="event_list">
+			<ol class="list">
+				{% for event in events %}
+				<li><a href="/event/{{ event.id }}">{{ event.event }}</a></li>
+				{% endfor %}
+			</ol>
+		</div>
+	</body>
+</html>
