@@ -1,18 +1,30 @@
-<html>
+<html lang="en">
 	<head>
-		<title>Web Calendar - all events</title>
+		<title>All Events - Web Calendar</title>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+		<link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
 	</head>
 	<body>
+		<div class="main_head">
+			<p>Return to main page:  <button class="header_button" onclick="window.location.href = '/'" style="font-family: Cinzel;">Main Page</button></p>
+		</div>
 		<div class="common_header">
 			<h1>All events you have planned:</h1>
 		</div>
 		<div class="event_list">
 			<ol class="list">
 				{% for event in events %}
-				<li><a href="/event/{{ event.id }}">{{ event.event }}</a></li>
+				<li>
+					<div class="button b1">
+						<a href="/event/{{ event.id }}">{{ event.event }}</a>
+					</div>
+				</li>
 				{% endfor %}
 			</ol>
+		</div>
+		<div class="footer">
+			<p>2022 © All Rights Reserved</p>
+			<p>Web Calendar free software distribution created by Aleksey Krazhevskiy</p>
 		</div>
 	</body>
 </html>

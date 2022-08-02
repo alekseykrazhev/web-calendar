@@ -1,16 +1,24 @@
-<html>
+<html lang="en">
 	<head>
-		<title>Web Calendar - main page</title>
+		<title>Main Page - Web Calendar</title>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/styles.css') }}">
+		<link href='https://fonts.googleapis.com/css?family=Cinzel' rel='stylesheet'>
 	</head>
 	<body>
+		<div class="main_head">
+			<p>Web Calendar Main Page</p>
+		</div>
 		<div class="header">
 			<h1>Welcome to your Web Calendar!</h1>
 			<p>What would you like to do?</p>
 		</div>
 		<div class="buttons">
-			<button class="button" onclick="window.location.href = '/event'">All events</button>
-			<button class="button" onclick="window.location.href = '/event/today'">Today's events</button>
+			<div class="button b2">
+				<a href = '/event' style="font-family: Cinzel;">All events</a>
+			</div>
+			<div class="button b1">
+				<a href="/event/today" style="font-family: Cinzel;">Today's Events</a>
+			</div>
 		</div>
 	</body>
 </html>

@@ -5,27 +5,109 @@ body {
 h1 {
 	color: wheat;
 	text-align: center;
+	font-family: Cinzel;
 }
 
 p {
 	color: wheat;
 	text-align: center;
+	font-family: Cinzel;
 }
 
-.button {
+.main_head {
+	background-color: #444444;
+	padding: 4px;
+	text-align: center;
+	height: 50px;
+}
+
+.header_button {
 	background-color: rgb(138, 124, 34);
 	border: none;
 	color: wheat;
-	padding: 15px 32px;
 	text-align: center;
-	display: inline-block;
-	font-size: 35px;
-	height: 100px;
-	width: 400px;
+	font-size: 15px;
+	height: 25px;
+	width: 120px;
+	overflow: hidden;
+	z-index: 1;
+	position: relative;
+}
+.header_button:hover {
+	background-color: rgb(138, 124, 34);
+}
+.header_button::after {
+	background: rgb(207, 171, 26);
+	position: absolute;
+	z-index: -1;
+	display: block;
+	content: "";
+	transition: all 0.35s;
+	top: 0;
+	bottom: 0;
+	left: 100%;
+	right: 100%;
+}
+.header_button:hover::after {
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	transition: all 0.35s;
+}
+
+.button {
+	position: relative;
+	display: block;
+	color: wheat;
+	text-decoration: none;
+	margin: 30px 0;
+	border: 2px solid black;
+	padding: 14px 60px;
+	overflow: hidden;
+	transition: 1s all ease;
+	font-size: 25px;
+	height: auto;
+	width: auto;
+}
+.button::before {
+	background: rgb(138, 124, 34);
+  	content: "";
+  	position: absolute;
+  	top: 50%;
+  	left: 50%;
+  	transform: translate(-50%,-50%);
+  	z-index: -1;
+  	transition: all 0.6s ease;
+}
+
+.b1::before{
+  	width: 100%;
+  	height: 0;
+  	transform: translate(-50%,-50%) rotate(-45deg);
+}
+.b1:hover::before{
+  	height: 380%;
+}
+
+.b2::before{
+  	width: 100%;
+  	height: 0;
+  	transform: translate(-50%,-50%) rotate(45deg);
+}
+.b2:hover::before{
+  	height: 380%;
 }
 
 .buttons {
 	text-align: center;
+	position: relative;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+	width: 800px;
+	height: auto;
+	padding: 0;
 }
 
 .common_header {
@@ -36,7 +118,7 @@ p {
 }
 
 .header {
-	padding: 80px;
+	padding: 60px;
 	text-align: center;
 	color: wheat;
 	font-size: 50px;
@@ -63,16 +145,27 @@ p {
 	padding: 7px 20px;
 	margin-bottom: 10px;
 	border-radius: 5px;
-	border-left: 10px solid #f05d22;
+	border-left: 10px solid rgb(194, 185, 6);
 	box-shadow: 2px -2px 5px 0 rgba(0,0,0,.1),
      -2px -2px 5px 0 rgba(0,0,0,.1),
     2px 2px 5px 0 rgba(0,0,0,.1),
     -2px 2px 5px 0 rgba(0,0,0,.1);
     font-size: 20px;
+    font-family: Cinzel;
     letter-spacing: 2px;
     transition: 0.3s all linear;
 }
 
-.list li:nth-child(2){border-color: #8bc63e;}
-.list li:nth-child(3){border-color: #fcba30;}
-.list li:nth-child(4){border-color: #1ccfc9;}
+.event_info {
+	padding: 40px;
+	text-align: center;
+	color: wheat;
+	font-size: 30px;
+}
+
+.footer {
+	background-color: #444444;
+	height: 83px;
+	padding: 4px;
+	bottom: 0;
+}
