@@ -81,7 +81,7 @@ def event_by_id(event_id):
             abort(404, "The event doesn't exist!")
         db.session.delete(event)
         db.session.commit()
-        return 'The event has been deleted!'
+        return 'The event has been deleted!', 200
 
 
 if __name__ == '__main__':

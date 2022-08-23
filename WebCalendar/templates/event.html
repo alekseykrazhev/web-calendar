@@ -9,13 +9,14 @@
 			<p>Return to main page:  <button class="header_button" onclick="window.location.href = '/'" style="font-family: Cinzel;">Main Page</button></p>
 		</div>
 		<div class="common_header">
-			<h1>All events you have planned:</h1>
+			<h1>All events you have planned</h1>
+			<button class="header_button" style="font-family: Cinzel; font-size: 35px; height: 70px; width: 300px" onclick="Add('/event')">Add new event</button>
 		</div>
 		<div class="event_list">
 			<ol class="list">
 				{% for event in events %}
 				<li>
-					<div class="button b1">
+					<div class="button b1" style="border: none">
 						<a href="/event/{{ event.id }}">{{ event.event }}</a>
 					</div>
 				</li>
