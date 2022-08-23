@@ -1,10 +1,12 @@
 from datetime import datetime
 from flask import Flask, jsonify, request, abort, render_template
+from flask_cors import CORS
 from flask_restful import reqparse, inputs
 from flask_sqlalchemy import SQLAlchemy
 import sys
 
 app = Flask(__name__)
+CORS(app)
 db = SQLAlchemy(app)
 parser = reqparse.RequestParser()
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db'
@@ -34,26 +36,28 @@ def main_page():
 @app.route('/event', methods=['GET', 'POST'])
 def event_page():
     if request.method == 'GET':
-        args = request.args
-        start_time = args.get('start_time')
-        end_time = args.get('end_time')
-        if start_time and end_time:
-            events = EventInfo.query.filter(EventInfo.date >= start_time, EventInfo.date <= end_time).all()
-        else:
-            events = EventInfo.query.all()
-        ans = []
-        for event in events:
-            ans.append({'id': event.id, 'event': event.event, 'date': event.date.strftime('%Y-%m-%d')})
-        return render_template('event.html', events=ans)
-    elif request.method == 'POST':
-        args = parser.parse_args()
+        pass
+
+    if request.method == 'POST':
+        event = request.form.get('event')
+        date = request.form.get('date')
         ei = EventInfo()
-        ei.event = args['event']
-        ei.date = args['date']
+        ei.event = event
+        ei.date = datetime.strptime(date, '%Y-%m-%d')
         db.session.add(ei)
         db.session.commit()
-        return jsonify({"message": "The event has been added!", "event": str(args['event']),
-                        "date": str(datetime.date(args['date']))})
+
+    args = request.args
+    start_time = args.get('start_time')
+    end_time = args.get('end_time')
+    if start_time and end_time:
+        events = EventInfo.query.filter(EventInfo.date >= start_time, EventInfo.date <= end_time).all()
+    else:
+        events = EventInfo.query.all()
+    ans = []
+    for event in events:
+        ans.append({'id': event.id, 'event': event.event, 'date': event.date.strftime('%Y-%m-%d')})
+    return render_template('event.html', events=ans)
 
 
 @app.route('/event/today')

@@ -10,7 +10,29 @@
 		</div>
 		<div class="common_header">
 			<h1>All events you have planned</h1>
-			<button class="header_button" style="font-family: Cinzel; font-size: 35px; height: 70px; width: 300px" onclick="Add('/event')">Add new event</button>
+			<button class="header_button" style="font-size: 30px; height: 70px; width: 300px; font-family: Cinzel" onclick="document.getElementById('id02').style.display='block'">Add new event</button>
+		</div>
+		<div id="id02" class="delete-form">
+			<form class="delete-content" action="/event" method="post">
+				<div class="delete-header">
+					<h1>Add new event</h1>
+				</div>
+				<div class="delete-body">
+					<p>Enter info about new event (date format is YYYY-MM-DD)</p>
+				</div>
+				<div class="delete-footer">
+					<label>
+						<input placeholder="Name" name="event">
+					</label>
+					<label>
+						<input placeholder="Date" name="date">
+					</label>
+				</div>
+				<div>
+					<button type="button" class="header_button" style="font-size: 35px; height: 70px; width: 300px; font-family: Cinzel" onclick="document.getElementById('id02').style.display='none'">Cancel</button>
+					<button type="submit" value="Add event" class="header_button" style="font-size: 35px; height: 70px; width: 300px; font-family: Cinzel">Confirm</button>
+				</div>
+			</form>
 		</div>
 		<div class="event_list">
 			<ol class="list">
