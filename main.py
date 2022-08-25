@@ -1,5 +1,5 @@
 from datetime import datetime
-from flask import Flask, jsonify, request, abort, render_template
+from flask import Flask, jsonify, request, abort, render_template, redirect
 from flask_cors import CORS
 from flask_restful import reqparse, inputs
 from flask_sqlalchemy import SQLAlchemy
@@ -10,6 +10,7 @@ CORS(app)
 db = SQLAlchemy(app)
 parser = reqparse.RequestParser()
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///events.db'
+logged_in = False
 
 parser.add_argument("event",
                     type=str,
@@ -30,7 +31,14 @@ class EventInfo(db.Model):
 
 @app.route('/')
 def main_page():
-    return render_template('main.html')
+    if logged_in:
+        return render_template('main.html')
+    return redirect('/login', code=301)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login_page():
+    return render_template('login.html')
 
 
 @app.route('/event', methods=['GET', 'POST'])
